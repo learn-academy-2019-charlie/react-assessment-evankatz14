@@ -31,30 +31,31 @@ Try your best to answer each question on your own before looking up the answer o
 
     import React, { Component } from 'react';
 
-    class Recipes {
+    class Recipes extends Component { //added "extends Component"
       constructor(props){
         super(props)
         this.state = {
-          recipes: 
+          recipes: [ //added bracket
             {name: 'Meatballs'},
             {name: 'Mac & Cheese'}
-      
+          ] //added bracket
         }
       }
 
       render() {
     
         return (
-    
-          let recipes = this.state.recipes.map(function(recipe){
+        <div> //added div to encompass everything in return
+          {let recipes = this.state.recipes.map(function(recipe){ 
             return(
               <li key={recipe.name}>{recipe.name}</li>
             )
-          })
+          })} //added curly bracket around the whole map function
     
           <ul>
-            {recipes}
+            {this.recipes} //add this.
           </ul>
+        </div>
         );
       }
     }
